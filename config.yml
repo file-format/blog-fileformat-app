@@ -1,0 +1,65 @@
+baseURL: 'https://blog.fileformat.app/'
+languageCode: 'en-us'
+title: 'File Format Apps Online File Processing Formats'
+theme: "PaperMod"
+paginate: 10
+enableRobotsTXT: true
+#googleAnalytics: UA-27946748-1
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON # is necessary
+
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  title: FileFormat Apps Blog
+  description: "File Format Apps Online File Processing Formats."
+  keywords: ["File Format Apps Online File Processing Formats"]
+  mainSections: # Add name of each folder under content folder that contains blog posts.
+  - Fileformat.Blog # https://gohugo.io/functions/where/#mainsections 
+  ShowShareButtons: true
+  ShowReadingTime: true
+  ShowBreadCrumbs: true
+  ShowPostNavLinks: true
+  ShowCodeCopyButtons: true
+  ShowFullTextinRSS: true
+  disableSpecial1stPost: true
+  fuseOpts:
+    keys: ["title"]
+
+  label:
+    text: "Home"
+    icon: /images/logo.png
+    iconHeight: 35
+
+languages:
+  en:
+    languageName: English
+    flag: flag-us
+    weight: 1
+
+menu:
+  main:
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 10
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 20
+    - identifier: archive
+      name: Archive
+      url: /archives/
+      weight: 30
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 40
+
+deployment:
+  targets:
+    name: "production"
+    URL: "s3://blog.fileformat.app/?region=us-west-2"
